@@ -1,38 +1,324 @@
-.App {
-  text-align: center;
-}
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
+
+
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* .name-menu { */
+  /* display: flex;
+  align-items: center;
+  padding: 30px 0;
+  background-color: #333333;
+  color: #f1f1f1;
+  width: 100vw;
+  position: relative; */
+/* } */
+
+.menuBtn::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c9";
+  color: #f1f1f1;
+}
+
+.menuBtn, .exitMenuBtn {
+  position: absolute;
+  left: 1%;
+  top: 30px;
+  /* margin-right: auto; */
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  transition: all 100ms cubic-bezier(0.42, 0, 0.5, 1.38);
+  z-index: 2;
+  color: #f1f1f1;
+}
+
+.exitMenuBtn {
+  text-shadow: 3px 3px 5px rgba(211, 211, 211, .5), 0px -5px 35px rgba(255,255,255,0.4);
+}
+
+.menuBtn, .exitMenuBtn {
+  transform: scale(1.20);
+}
+
+.menuBtn:active, .exitMenuBtn:active {
+  transform: scale(1.00);
+}
+
+.exitMenuBtn::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00d";
+  color: #f1f1f1;
+  margin-left: 2px;
+}
+
+.title h1 {
+  padding: 15px 0;
+  text-align: center;
+  background-color: #333333;
+  color: #f1f1f1;
+  width: 100vw;
+}
+
+nav {
+  z-index: 1;
+}
+
+.closeMenu {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 78vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7); 
+  transition: .4s;
+}
+
+.openMenu {
+  background-color: rgba(0,0,0,0.6); 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 78vw;
+  height: 100vh;
+  transition: 325ms;
+}
+
+.active {
+  left: 0;
+  transition: 325ms;
+}
+
+.pageGradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8); 
+  animation: fadeIn 250ms;
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.noPageGradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent; 
+  animation: fadeOut 250ms;
+}
+
+@keyframes fadeOut{
+  from {
+    opacity: 1;
+    background-color: rgba(0,0,0,0.7); 
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+header h2 {
+  padding: 14px 0;
+  width: 100vw;
+  text-align: center;
+  background-color: #f1f1f1;
+  /* delete below: */
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  /* use vw??? */
+  width: 100%;
+  top: 68px;
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  padding: 7px 10px;
+  width: fit-content;
+  border-radius: 25px;
+  z-index: 3;
+  text-align: center;
+  margin: 0 80px 13px;
+  transition: all 140ms cubic-bezier(0.42, 0, 0.08, 1.44);
+}
+
+li:active {
+  transform: scale(1.06);
+}
+
+a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* HomePage */
+
+.portrait-image {
+  width: 100%;
+  /* height: 100px; */
+  /* object-fit: cover; */
+  /* object-position: top center; */
+}
+
+.box {
+  width: 100%;
+  height: 200px;
+  border-right: 1px solid red;
+  background-color: cadetblue;
+  position: absolute;
+  z-index: 2;
+}
+
+.box-2 {
+  width: 100%;
+  height: 200px;
+  border: 1px solid red;
+  background-color: papayawhip;
+}
+
+.box-3 {
+  width: 100%;
+  height: 200px;
+  border-right: 1px solid red;
+  background-color: coral;
+}
+
+.box-4 {
+  width: 100%;
+  height: 200px;
+  border-right: 1px solid red;
+  background-color: cornflowerblue;
+}
+
+.parallax-container {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
+.mountainA{
+  position: absolute;
+  bottom: -200px;
+  width: 100%;
+  left: 0;
+  z-index: 4;
+}
+
+.mountainB{
+  position: absolute;
+  bottom: -200px;
+  width: 100%;
+  left: 0;
+  z-index: 4;
+}
+
+.moon{
+  position: absolute;
+  width: 10%;
+  top: 10%;
+  left: 30%;
+  z-index: 2;
+}
+
+.stars{
+  position: absolute;
+  /* width: 100%; */
+  height: 90vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.test {
+  position: absolute;
+  bottom: 100%;
+  bottom: 0px;
+  width: 100%;
+  height: 300px;
+  /* height: 100vh; */
+  left: 0;
+  z-index: 5;
+  background: linear-gradient(to top, #151515, transparent);
+}
+
+.test2 {
+  /* position: absolute; */
+  /* top: 1000px; */
+  /* top: 110%; */
+  /* bottom: 100%; */
+  width: 100%;
+  height: 100vh;
+  background-color: #151515;
+  z-index: 8;
+}
+
+.para-title {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 6;
+}
+

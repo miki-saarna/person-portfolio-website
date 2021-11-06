@@ -11,9 +11,15 @@
   }
 } */
 
+body {
+  background-color: rgba(0,0,0,.87);
+  height: 200vh;
+  color: #f1f1f1;
+}
 
-
-
+h3 {
+  font-size: 22px;
+}
 
 /* @keyframes App-logo-spin {
   from {
@@ -25,13 +31,72 @@
 } */
 
 
-
+/* header */
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+h1 {
+  padding: 8px 0;
+  text-align: center;
+  /* background-color: #333333; */
+  color: #f1f1f1;
+  font-size: 40px;
+  /* width: 100vw; */
+}
+
+nav {
+  /* delete? */
+  z-index: 1;
+}
+
+
+header h2 {
+  padding: 7px 0;
+  width: 100vw;
+  text-align: center;
+  background-color: #f1f1f1;
+  color: #333333;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  /* use vw??? */
+  width: 100%;
+  top: 68px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  padding: 7px 10px;
+  width: fit-content;
+  border-radius: 25px;
+  text-align: center;
+  margin: 0 80px 13px;
+  transition: all 140ms cubic-bezier(0.42, 0, 0.08, 1.44);
+}
+
+li:active {
+  transform: scale(1.06);
+}
+
+a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 24px;
+  font-weight: 700;
+  /* z-index: 100; */
+
+}
+/* ================================= */
+
+/* unsure of function below - delete? */
 /* .name-menu { */
   /* display: flex;
   align-items: center;
@@ -42,6 +107,8 @@ header {
   position: relative; */
 /* } */
 
+
+/* slide-in-and-out menu button */
 .menuBtn::before {
   display: inline-block;
   font-style: normal;
@@ -56,14 +123,14 @@ header {
 
 .menuBtn, .exitMenuBtn {
   position: absolute;
-  left: 1%;
+  left: 2%;
   top: 30px;
   /* margin-right: auto; */
   background-color: transparent;
   border: none;
   font-size: 24px;
   transition: all 100ms cubic-bezier(0.42, 0, 0.5, 1.38);
-  z-index: 2;
+  z-index: 8;
   color: #f1f1f1;
 }
 
@@ -92,26 +159,15 @@ header {
   margin-left: 2px;
 }
 
-.title h1 {
-  padding: 15px 0;
-  text-align: center;
-  background-color: #333333;
-  color: #f1f1f1;
-  width: 100vw;
-}
-
-nav {
-  z-index: 1;
-}
-
 .closeMenu {
   position: absolute;
   top: 0;
   left: -100%;
   width: 78vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.7); 
+  background-color: rgba(0,0,0,0.6); 
   transition: .4s;
+  z-index: 7;
 }
 
 .openMenu {
@@ -122,6 +178,7 @@ nav {
   width: 78vw;
   height: 100vh;
   transition: 325ms;
+  z-index: 7;
 }
 
 .active {
@@ -137,6 +194,7 @@ nav {
   height: 100vh;
   background-color: rgba(0,0,0,0.8); 
   animation: fadeIn 250ms;
+  z-index: 6;
 }
 
 @keyframes fadeIn{
@@ -169,50 +227,68 @@ nav {
     opacity: 0;
   }
 }
-
-header h2 {
-  padding: 14px 0;
-  width: 100vw;
-  text-align: center;
-  background-color: #f1f1f1;
-  /* delete below: */
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-  /* use vw??? */
-  width: 100%;
-  top: 68px;
-  z-index: 2;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-li {
-  padding: 7px 10px;
-  width: fit-content;
-  border-radius: 25px;
-  z-index: 3;
-  text-align: center;
-  margin: 0 80px 13px;
-  transition: all 140ms cubic-bezier(0.42, 0, 0.08, 1.44);
-}
-
-li:active {
-  transform: scale(1.06);
-}
-
-a {
-  text-decoration: none;
-  color: #f1f1f1;
-  font-size: 24px;
-  font-weight: 700;
-}
+/* ================================= */
 
 /* HomePage */
+.homepage-title {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.earth, .moon, .saturn, .rocket, .satellite {
+  position: absolute;
+  /* z-index: 1; */
+}
+
+.earth {
+  position: absolute;
+  width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.moon {
+  position: absolute;
+  width: 25%;
+  top: 70%;
+  right: 10%;
+  z-index: 2;
+}
+
+.saturn {
+  position: absolute;
+  width: 25%;
+  top: 40%;
+  right: 15%;
+  z-index: 1;
+
+}
+
+.rocket {
+  position: absolute;
+  width: 25%;
+  top: 61%;
+  left: 5%;
+  z-index: 5;
+
+}
+
+.satellite {
+  position: absolute;
+  width: 25%;
+  top: 55%;
+  left: 50%;
+  z-index: 4;
+
+}
+
+
+
+
+/* ================================= */
+
 
 .portrait-image {
   width: 100%;
@@ -273,14 +349,6 @@ a {
   width: 100%;
   left: 0;
   z-index: 4;
-}
-
-.moon{
-  position: absolute;
-  width: 10%;
-  top: 10%;
-  left: 30%;
-  z-index: 2;
 }
 
 .stars{

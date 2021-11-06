@@ -6,6 +6,7 @@ export const Header = () => {
     return (
         <>
             <header>
+                {/* might be able to delete classes 'link' and 'title' */}
                 <Link className="link title" to="/"><h1>Miki</h1></Link>
                 <h2>Professional Shopify Developer</h2>
                 {/* <nav>

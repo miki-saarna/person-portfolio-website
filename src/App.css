@@ -242,7 +242,7 @@ a {
 
 .earth {
   position: absolute;
-  width: 30%;
+  width: 45%;
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
@@ -255,6 +255,8 @@ a {
   top: 70%;
   right: 10%;
   z-index: 2;
+  /* delete dislay none below */
+  display: none;
 }
 
 .saturn {
@@ -263,7 +265,6 @@ a {
   top: 40%;
   right: 15%;
   z-index: 1;
-
 }
 
 .rocket {
@@ -272,19 +273,15 @@ a {
   top: 61%;
   left: 5%;
   z-index: 5;
-
 }
 
 .satellite {
   position: absolute;
-  width: 25%;
-  top: 55%;
-  left: 50%;
+  width: 15%;
+  top: 59%;
+  left: 42%;
   z-index: 4;
-
 }
-
-
 
 
 /* ================================= */

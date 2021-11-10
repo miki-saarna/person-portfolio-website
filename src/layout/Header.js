@@ -7,8 +7,8 @@ export const Header = () => {
         <>
             <header>
                 {/* might be able to delete classes 'link' and 'title' */}
-                <Link className="link title" to="/"><h1>Miki</h1></Link>
-                <h2>Professional Shopify Developer</h2>
+                <Link className="link title" to="/"><h1>M</h1></Link>
+                {/* <h2>Professional Shopify Developer</h2> */}
                 {/* <nav>
                     <ul>
                         <li><Link className="link" to="/about">About</Link></li>

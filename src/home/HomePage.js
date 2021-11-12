@@ -18,10 +18,11 @@ const HomePage = () => {
     
     
     const [offset, setOffset] = useState(0);
+    const [offset2, setOffset2] = useState(0);
 
     
     const handleScroll = () => setOffset(window.pageYOffset);
-    
+    const handleScroll2 = () => setOffset2(window.pageYOffset);
     
 
     // AnimatedEllipse();
@@ -94,54 +95,126 @@ const HomePage = () => {
                     : element.style.zIndex = 4
                     
             }
-            if(element.className.includes('homepage-title')) {
+            // if(element.className.includes('homepage-title')) {
                 // element.style.transition = `all .1s ease`;
-                element.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * scale)}, ${1 + (offset * scale)})`
-            }
+                // element.style.transform = `translateY(-${offset * speedY}px)`
+                // element.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * scale)}, ${1 + (offset * scale)})`
+                
+            // }
         })
+    const reveal = document.querySelector(".reveal");
+
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+    
+    let revealPoint = 10;
+    if(window.innerWidth < 768) {
+      revealPoint = 400
+    } else if(window.innerWidth < 1024) {
+      revealPoint = 150
+    } else if(window.innerWidth < 1200) {
+      revealPoint = 150
+    } else {
+      revealPoint = 150
+    }
+
+    
+    const speedY = reveal.dataset.speedY;
+    const scale = reveal.dataset.scale;
+    
+    if(revealTop < windowHeight - revealPoint) {
+        reveal.classList.add('active');
+            reveal.style.opacity = `${offset * speedY * .3}`
+            reveal.style.transition = `all .15s ease`
+            reveal.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * scale)}, ${1 + (offset * scale)})`
+    } 
+
+    const reveal2 = document.querySelector(".reveal2");
+    
+        
+            const windowHeight2 = window.innerHeight;
+            const revealTop2 = reveal2.getBoundingClientRect().top;
+            
+            
+            let revealPoint2 = 10;
+            if(window.innerWidth < 768) {
+              revealPoint2 = 300
+            } else if(window.innerWidth < 1024) {
+              revealPoint2 = 150
+            } else if(window.innerWidth < 1200) {
+              revealPoint2 = 150
+            } else {
+              revealPoint2 = 150
+            }
+        // console.log(revealTop2)
+            
+        if(revealTop2 < windowHeight2 - revealPoint2) {
+            reveal2.style.transition = `all .15s ease` 
+            // reveal2.style.opacity = `1`
+            reveal2.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * .15 * scale)}, ${1 + (offset * .15 * scale)})`
+            }
+
+        if(revealTop2 < windowHeight2 - revealPoint2 && revealTop2 > 300) {
+            reveal2.style.opacity = `1`
+        } else if(revealTop2 < windowHeight2 - revealPoint2 && revealTop2 < 301) {
+            reveal2.style.opacity = `${1 - offset * 0.003}`
+            console.log(offset)
+        }
+        
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
 
 
     // section fade in
-useEffect(() => {
-    const reveal = document.querySelector(".reveal");
+// useEffect(() => {
+//     const reveal = document.querySelector(".reveal");
 
-    window.addEventListener("scroll", () => {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveal.getBoundingClientRect().top;
+//     window.addEventListener("scroll", () => {
+//         const windowHeight = window.innerHeight;
+//         const revealTop = reveal.getBoundingClientRect().top;
         
-        // console.log(reveal.getBoundingClientRect())
-        let revealPoint = 10;
-        if(window.innerWidth < 768) {
-          revealPoint = 400
-        } else if(window.innerWidth < 1024) {
-          revealPoint = 150
-        } else if(window.innerWidth < 1200) {
-          revealPoint = 150
-        } else {
-          revealPoint = 150
-        }
+//         let revealPoint = 10;
+//         if(window.innerWidth < 768) {
+//           revealPoint = 400
+//         } else if(window.innerWidth < 1024) {
+//           revealPoint = 150
+//         } else if(window.innerWidth < 1200) {
+//           revealPoint = 150
+//         } else {
+//           revealPoint = 150
+//         }
     
         
-        if(revealTop < windowHeight - revealPoint) {
-            reveal.classList.add('active');
-            setInterval(() => { reveal.style.transition = `all .05s ease` }, 2000)
-        } else {
-            reveal.classList.remove('active');
-        }
-    });
-},[]);
+//         const speedY = reveal.dataset.speedY;
+//         const scale = reveal.dataset.scale;
+        
+//         if(revealTop < windowHeight - revealPoint) {
+//             reveal.classList.add('active');
+//             setInterval(() => { 
+//                 const offsetAfterTwoSeconds = window.pageYOffset;
+                
+                
+//                 reveal.style.transition = `all .05s ease`
+//                 reveal.style.transform = `translateY(-${(offset - offsetAfterTwoSeconds) * speedY}px) scale(${1 + ((offset - offsetAfterTwoSeconds) * scale)}, ${1 + ((offset - offsetAfterTwoSeconds) * scale)})`
+                
+
+//             }, 2000)
+//         } else {
+//             reveal.classList.remove('active');
+//         }
+//     });
+//     // return () => window.removeEventListener("scroll", handleScroll);
+// },[]);
 
     // section fade in
     // useEffect(() => {
-    //     const reveal = document.querySelector(".reveal2");
+    //     const reveal2 = document.querySelector(".reveal2");
     
     //     window.addEventListener("scroll", () => {
     //         const windowHeight = window.innerHeight;
-    //         const revealTop = reveal.getBoundingClientRect().top;
+    //         const revealTop = reveal2.getBoundingClientRect().top;
             
-    //         console.log(reveal.getBoundingClientRect())
+            
     //         let revealPoint = 10;
     //         if(window.innerWidth < 768) {
     //           revealPoint = 300
@@ -161,11 +234,13 @@ useEffect(() => {
     //             reveal.classList.remove('active');
     //         }
     //     });
+    // // return () => window.removeEventListener("scroll", handleScroll);
+
     // },[]);
 
     return (
         <>
-            <h3 className='homepage-title parallax reveal' data-speed-y="0.1" data-scale=".005">Discover</h3>
+            <h3 className='homepage-title parallax reveal' data-speed-y="0.1" data-scale=".01">Discover</h3>
             <h3 className='possibilities reveal2' data-speed-y="0.1" data-scale=".005"> The Possibilities</h3>
             {/* earth is not centering on page reload */}
             <img className='earth' data-speed="0.7" src={earth} alt="" />

@@ -1,10 +1,93 @@
 
+import React, { useState } from "react";
+import { isCompositeComponent } from "react-dom/test-utils";
+
+function ContactPage() {
+    const initialFormState = {
+        name: '',
+        email: '',
+        url: '',
+        message: '',
+    }
+
+    const [formData, setFormData] = useState(initialFormState)
+
+    const changeHandler = ({ target }) => {
+        const value = target.value;
+        // const { value } = target;
+        setFormData({
+            ...formData,
+            [target.name]: value, 
+        })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setFormData(initialFormState);
+    }
+
+    
 
 
-
-const ContactPage = () => {
     return (
-        <h1>hello contacts</h1>
+        <div>
+            <h2>hello contacts</h2>
+            <form className='form' onSubmit={handleSubmit}>
+                <label htmlFor='name'>
+                    Name:
+                    <input
+                        id='name'
+                        name='name'
+                        type='text'
+                        onChange={changeHandler}
+                        value={formData.name}
+                        />
+                </label>
+
+                <br />
+
+                <label htmlFor='email'>
+                    Email address:
+                    <input
+                        id='email'
+                        name='email'
+                        type='email'
+                        onChange={changeHandler}
+                        value={formData.email}
+                        />
+                </label>
+
+                <br />
+
+                <label htmlFor='url'>
+                    Website URL (if available):
+                    <input
+                        id='url'
+                        name='url'
+                        type='text'
+                        onChange={changeHandler}
+                        value={formData.url}
+                        />
+                </label>
+
+                <br />
+
+                <label htmlFor='message'>
+                    Message:
+                    <textarea
+                        id='message'
+                        name='message'
+                        type='textarea'
+                        onChange={changeHandler}
+                        value={formData.message}
+                    ></textarea>
+                </label>
+
+                <br />
+          <button type='submit'>Submit</button>
+
+            </form>
+        </div>
     )
 }
 

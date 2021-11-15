@@ -28,7 +28,7 @@ export const Menu = () => {
                             }
                         </ul>
                     </nav>
-                    <div className={menuBar ? "pageGradient" : "noPageGradient"} onClick={menuBar ? showMenuBarHandler : null}></div>
+                    <div className={menuBar ? "pageGradient" : null} onClick={menuBar ? showMenuBarHandler : null}></div>
                   </>
         </>
     )

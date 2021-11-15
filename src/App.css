@@ -224,13 +224,13 @@ a {
 }
 
 .noPageGradient {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   right: 0;
   width: 100vw;
   height: 100vh;
-  background-color: transparent; 
-  animation: fadeOut 250ms;
+  background-color: transparent;
+  animation: fadeOut 250ms; */
 }
 
 @keyframes fadeOut{
@@ -387,4 +387,59 @@ a {
   /* transform: translateY(0px); */
   /* opacity: 1; */
 }
+/* ================================= */
+
+
+
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+label:first-of-type {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  width: 300px;
+
+
+}
+label {
+  /* font-family: monospace, 'Times New Roman', Times, serif; */
+  /* color: pink; */
+}
+
+
+label {
+  /* margin-left: 15px; */
+  display: block;
+  font-family: monospace;
+  
+
+
+}
+input, textarea {
+  background-color: transparent;
+  color: #f1f1f1;
+  /* border: none; */
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 10px 0;
+  display: block;
+  padding: 5px;
+  width: 300px;
+}
+
+
+input:focus, textarea:focus {
+  /* background-color: yellow; */
+  /* border: none; */
+  /* color: red; */
+  border: 1px solid white;
+  outline: none;
+}
+
 /* ================================= */

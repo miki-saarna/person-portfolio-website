@@ -20,12 +20,16 @@ body {
 }
 
 h2 {
-  text-align: center;
+  /* text-align: center; */
 }
 
 h3 {
   font-size: 22px;
   text-align: center;
+}
+
+.headerLabel {
+  margin: 30px 0 10px;
 }
 
 /* @keyframes App-logo-spin {
@@ -110,6 +114,7 @@ a {
   /* z-index: 100; */
 
 }
+
 /* ================================= */
 
 /* unsure of function below - delete? */
@@ -393,29 +398,12 @@ a {
 
 /* form */
 form {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  margin: 0 auto;
+  display: table;
 }
-
-label:first-of-type {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vw;
-  width: 300px;
-
-
-}
-label {
-  /* font-family: monospace, 'Times New Roman', Times, serif; */
-  /* color: pink; */
-}
-
 
 label {
-  /* margin-left: 15px; */
-  display: block;
+  /* display: block; */
   font-family: monospace;
   
 
@@ -424,22 +412,93 @@ label {
 input, textarea {
   background-color: transparent;
   color: #f1f1f1;
-  /* border: none; */
-  border: 1px solid white;
-  border-radius: 5px;
+  border: 1px solid #f1f1f1;
+  border-radius: 7px;
   margin: 10px 0;
   display: block;
   padding: 5px;
   width: 300px;
 }
 
+textarea {
+  resize: none;
+}
 
+/* when corresponding input/textarea is in focus/clicked on */
 input:focus, textarea:focus {
-  /* background-color: yellow; */
-  /* border: none; */
-  /* color: red; */
-  border: 1px solid white;
+  border: 2px solid #f1f1f1;
   outline: none;
 }
+
+button {
+  padding: 5px 11px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* ================================= */
+
+/* about page */
+.aboutPage {
+  margin-right: 20px;
+  margin-left: 20px;
+  /* width: 0; */
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.aboutPage h2 {
+  text-align: center;
+}
+
+#slidingOut {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  /* padding: 8px; */
+  border-left: 1px solid #f1f1f1;
+  border-right: 1px solid #f1f1f1;
+  /* width: 90%; */
+  width: 0;
+  height: fit-content;
+  max-height: 80px;
+  /* animation: slideOutward 750ms; */
+  /* overflow-y: hidden; */
+  /* border-top-right-radius: 7px; */
+  /* border-bottom-left-radius: 7px; */
+}
+
+#slidingOut.greater {
+  /* width: 90% !important; */
+  animation: slideOutward 750ms;
+  /* border: 3px solid red; */
+}
+
+.portrait {
+  width: 100%;
+  /* object-fit: cover; */
+}
+/* .pageGradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8); 
+  animation: fadeIn 250ms;
+  z-index: 6;
+}
+} */
+
+@keyframes slideOutward {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 90%;
+  }
+}
+
 
 /* ================================= */

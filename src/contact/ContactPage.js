@@ -31,8 +31,9 @@ function ContactPage() {
 
     return (
         <div>
-            <h2>hello contacts</h2>
             <form className='form' onSubmit={handleSubmit}>
+            <h2 className="headerLabel">Contact me</h2>
+            
                 <label htmlFor='name'>
                     Name:
                     <input
@@ -78,6 +79,7 @@ function ContactPage() {
                         id='message'
                         name='message'
                         type='textarea'
+                        rows='3'
                         onChange={changeHandler}
                         value={formData.message}
                     ></textarea>
@@ -85,7 +87,7 @@ function ContactPage() {
 
                 <br />
           <button type='submit'>Submit</button>
-
+          
             </form>
         </div>
     )
